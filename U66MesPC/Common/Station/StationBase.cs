@@ -970,7 +970,7 @@ namespace U66MesPC.Common.Station
         }
         public void CheckMesConnectStatus(BaseResponseParams response)
         {
-            Connected = response == null ? false : true;
+            Connected = response != null;
         }
         public void HandleException(Exception ex)
         {
