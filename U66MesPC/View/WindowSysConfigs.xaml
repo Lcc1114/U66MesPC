@@ -1,0 +1,98 @@
+﻿<Window x:Class="U66MesPC.View.WindowSysConfigs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:U66MesPC.View"
+        xmlns:common="clr-namespace:U66MesPC.Common.Station"
+        mc:Ignorable="d"
+        Title="参数配置" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+
+        <ResourceDictionary>
+            <ObjectDataProvider x:Key="StationTypeEnum" MethodName="GetValues" ObjectType="{x:Type common:StationType}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type Type="common:StationType"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+            <Style TargetType="TextBox">
+                <Setter Property="MinWidth" Value="400"/>
+                <Setter Property="Width" Value="Auto"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Width" Value="Auto"/>
+            </Style>
+            <Style TargetType="StackPanel">
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="Margin" Value="0,5"/>
+            </Style>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/U66MesPC;component/Resource/Style/Style.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Background="{StaticResource DefaultBackground}">
+        <UniformGrid Columns="1">
+            <StackPanel HorizontalAlignment="Left">
+                <Label Content="    工站类型:"/>
+                <ComboBox IsReadOnly="True" ItemsSource="{Binding Source={StaticResource StationTypeEnum}}"
+                        SelectedItem="{Binding Config.StationType}" Width="200" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Top"></ComboBox>
+                <!--<TextBox Text="{Binding Config.StationType}"></TextBox>-->
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Plc地址:"/>
+                <TextBox Text="{Binding Config.PlcIP}"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Plc端口:"/>
+                <TextBox Text="{Binding Config.PlcPort}"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="URL:"/>
+                <TextBox Text="{Binding Config.Url}"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Line:"/>
+                <TextBox Text="{Binding Config.Line}"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="StationID:"/>
+                <TextBox Text="{Binding Config.StationID}"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="MachineID:"/>
+                <TextBox Text="{Binding Config.MachineID}"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Token:"/>
+                <TextBox Text="{Binding Config.Token}"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="OPID:"/>
+                <TextBox Text="{Binding Config.OPID}"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="FixSN:"/>
+                <TextBox Text="{Binding Config.FixSN}"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Mold:"/>
+                <TextBox Text="{Binding Config.Mold}"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="AlarmCode:"/>
+                <TextBox Text="{Binding Config.AlarmCode}"></TextBox>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center">
+                <Button Command="{Binding OnSaveCommand}" Content="保存" Style="{StaticResource FlatButton}" Width="100"/>
+                <Button Command="{Binding OnCancelCommand}" Content="取消" Style="{StaticResource FlatButton}" Width="100"/>
+            </StackPanel>
+        </UniformGrid>
+    </Grid>
+</Window>

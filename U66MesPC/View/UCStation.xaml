@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="U66MesPC.View.UCStation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:U66MesPC.View"
+             mc:Ignorable="d" 
+             Width="Auto" Height="Auto">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/U66MesPC;component/Resource/Style/Style.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="TextBox">
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="IsReadOnly" Value="True"/>
+            </Style>
+            <Style x:Key="EditableTextBoxStyle" TargetType="TextBox">
+                <Setter Property="IsReadOnly" Value="False"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="Margin" Value="0,2,0,3"/>
+            </Style>
+            <Style TargetType="Button" BasedOn="{StaticResource FlatButton}"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="{StaticResource DefaultBackground}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="当前线别：" Margin="0,5" MouseDoubleClick="Label_MouseDoubleClick"></Label>
+        <TextBox Text="{Binding Station.Line}" Grid.Column="1"/>
+        <Label Content="当前站别：" Grid.Column="2"></Label>
+        <TextBox   Text="{Binding Station.StationID}" Grid.Column="3"/>
+        <Label Content="当前机台：" Grid.Column="4"></Label>
+        <TextBox  Text="{Binding Station.MachineID}" Grid.Column="5"/>
+        <Label Grid.Row="1" Grid.Column="0"  Content="   载具码：" Margin="0,5"></Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Text="{Binding Station.CarrierID}"/>
+        <!--<Label Grid.Row="2" Content="ToolingSN：" Grid.Column="0" Margin="0,5"></Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" x:Name="txtToolingSN" Style="{StaticResource EditableTextBoxStyle}" KeyDown="txtToolingSN_KeyDown"/>
+        <Button  Grid.Row="2" Grid.Column="2"  Content="发送" Click="WriteSN" Visibility="Hidden"/>-->
+        <!--<Label Grid.Row="2" Content="   寄存器号：" Grid.Column="0" Margin="0,5"></Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" x:Name="txtip"/>
+        <TextBox Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1" x:Name="txtbox" />
+        <Button  Grid.Row="2" Grid.Column="5"  Content="Dispatch" Click="Button_Click"/>-->
+        <!--<Label Grid.Row="2" Content="   产品码：" Grid.Column="0" Margin="0,5"></Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5" Text="{Binding Station.SN}"/>-->
+        
+        <UniformGrid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="6" x:Name="uiManualBtn">
+            <Button Content="SNCheckIn" Command="{Binding SNCheckInCommand}"/>
+            <Button Content="SNFeedingCheck" Command="{Binding SNFeedingCheckCommand}" />
+            <Button Content="SNCheckOut" Command="{Binding SNCheckOutCommand}" Margin="1,0,-1,0"/>
+            <Button Content="CarrierCheck" Command="{Binding CarrierCheckCommand}"/>
+            <Button Content="GlueCheckOut" Command="{Binding GlueCheckOutCommand}"/>
+            <Button Content="DataCollection" Command="{Binding DataCollectionCommand}"/>
+            <Button Content="SNCarrierBind" Command="{Binding SNCarrierBindCommand}"/>
+            <Button Content="Status" Command="{Binding StatusCommand}"/>
+            <Button Content="Alarm" Command="{Binding AlarmCommand}"/>
+        </UniformGrid>
+        <Button x:Name="uiOperateBtn" Content="标签操作" Grid.Row="4" Height="40" Visibility="Collapsed" Command="{Binding OperateCommands}"/>
+        
+    </Grid>
+</UserControl>

@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9045E90-82EC-4C29-9B0B-E1B73474782A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>U66MesPC</RootNamespace>
+    <AssemblyName>U66MesPC</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;MANUAL_TEST</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;MANUAL_TEST</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>U66MesPC.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EasyModbus, Version=5.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyModbusTCP.5.6.0\lib\net40\EasyModbus.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="HslCommunication">
+      <HintPath>..\dll\HslCommunication.dll</HintPath>
+    </Reference>
+    <Reference Include="NModbus, Version=3.0.81.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NModbus.3.0.81\lib\net46\NModbus.dll</HintPath>
+    </Reference>
+    <Reference Include="NModbus4, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NModbus4.2.1.0\lib\net40\NModbus4.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.CodeFirst, Version=1.7.0.34, Culture=neutral, PublicKeyToken=eb96ba0a78d831a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLite.CodeFirst.1.7.0.34\lib\net45\SQLite.CodeFirst.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.118.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.118.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Common\BaseRequestParams.cs" />
+    <Compile Include="Common\BaseResponseParams.cs" />
+    <Compile Include="Common\Exceptions\ArgumentErrorException.cs" />
+    <Compile Include="Common\HttpClientHelper.cs" />
+    <Compile Include="Common\LoginToken.cs" />
+    <Compile Include="Common\LogsUtil.cs" />
+    <Compile Include="Common\Exceptions\MesConnException.cs" />
+    <Compile Include="Common\ModbusTcpConn.cs" />
+    <Compile Include="Common\NModbusConnection.cs" />
+    <Compile Include="Common\ModbusConnection.cs" />
+    <Compile Include="Common\Product.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\Station\Binning.cs" />
+    <Compile Include="Common\Station\CapInput.cs" />
+    <Compile Include="Common\Station\ChangeBoat4.cs" />
+    <Compile Include="Common\Station\EFlexLoad.cs" />
+    <Compile Include="Common\Station\EFlexUnLoad.cs" />
+    <Compile Include="Common\Station\PSA2Press.cs" />
+    <Compile Include="Common\Station\PSA2Unload.cs" />
+    <Compile Include="Common\Station\PSA2Load.cs" />
+    <Compile Include="Common\Station\PSA1Unload.cs" />
+    <Compile Include="Common\Station\PSA1Load.cs" />
+    <Compile Include="Common\Station\PCBAUnLoad.cs" />
+    <Compile Include="Common\Station\PCBALoad.cs" />
+    <Compile Include="Common\Station\SortFlow.cs" />
+    <Compile Include="Common\Station\StationBase.cs" />
+    <Compile Include="Common\Station\FlowCheck.cs" />
+    <Compile Include="Common\Station\TrimInput.cs" />
+    <Compile Include="Common\ViewModelBase.cs" />
+    <Compile Include="Dal\DBContext.cs" />
+    <Compile Include="Dal\SqlHelper.cs" />
+    <Compile Include="Dal\Tool\CarrierIDBindingNoNumber140Tool.cs" />
+    <Compile Include="Dal\Tool\CarrierIDPressBindingSNTool.cs" />
+    <Compile Include="Dal\Tool\CarrierIDBindingBot4Tool.cs" />
+    <Compile Include="Dal\Tool\CarrierIDProductUnloadTool.cs" />
+    <Compile Include="Dal\Tool\CarrierIDBindingBot6Tool.cs" />
+    <Compile Include="Dal\Tool\CarrierIDBindingBot5Tool.cs" />
+    <Compile Include="Dal\Tool\CarrierIDBindingNoNumber50Tool.cs" />
+    <Compile Include="Dal\Tool\CarrierIDBindingSNTool.cs" />
+    <Compile Include="Dal\Tool\PLC_StatusTool.cs" />
+    <Compile Include="Model\AlarmParams.cs" />
+    <Compile Include="Model\CarrierBindParams.cs" />
+    <Compile Include="Model\CarrierCheckParams.cs" />
+    <Compile Include="Model\CarrierIDBindingNoNumber140.cs" />
+    <Compile Include="Model\CarrierIDPressBindingSN.cs" />
+    <Compile Include="Model\CarrierIDProductUnload.cs" />
+    <Compile Include="Model\CarrierIDBindingBot4.cs" />
+    <Compile Include="Model\CarrierIDBindingBot6.cs" />
+    <Compile Include="Model\CarrierIDBindingBot5.cs" />
+    <Compile Include="Model\CarrierIDBindingNoNumber50.cs" />
+    <Compile Include="Model\CarrierIDBindingSN.cs" />
+    <Compile Include="Model\CheckInParams.cs" />
+    <Compile Include="Model\CheckOutParams.cs" />
+    <Compile Include="Model\Converter.cs" />
+    <Compile Include="Model\DataCollectionParams.cs" />
+    <Compile Include="Model\FeedingCheckParams.cs" />
+    <Compile Include="Model\GlueCheckOutParams.cs" />
+    <Compile Include="Model\LogInfo.cs" />
+    <Compile Include="Model\FlowCheckRequest.cs" />
+    <Compile Include="Model\LoginParams.cs" />
+    <Compile Include="Model\PackingMenuParams.cs" />
+    <Compile Include="Model\PLC_Status.cs" />
+    <Compile Include="Model\ToolingSNandVersionModel.cs" />
+    <Compile Include="ViewModel\PackingMenuOperateViewModel.cs" />
+    <Compile Include="ViewModel\PackingMenuViewModel.cs" />
+    <Compile Include="ViewModel\StationViewModel.cs" />
+    <Compile Include="Model\StatusParams.cs" />
+    <Compile Include="Model\SysConfigs.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\SysconfigsManagementViewModel.cs" />
+    <Compile Include="ViewModel\SysConfigsViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\ToolingSNandVersionViewModel.cs" />
+    <Compile Include="View\ToolingSNView.xaml.cs">
+      <DependentUpon>ToolingSNView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UCSignLamp.xaml.cs">
+      <DependentUpon>UCSignLamp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UCStation.xaml.cs">
+      <DependentUpon>UCStation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowAuthority.xaml.cs">
+      <DependentUpon>WindowAuthority.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowPackingMenuLogin.xaml.cs">
+      <DependentUpon>WindowPackingMenuLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowPackingMenuOperate.xaml.cs">
+      <DependentUpon>WindowPackingMenuOperate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowSysConfigs.xaml.cs">
+      <DependentUpon>WindowSysConfigs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowLogin.xaml.cs">
+      <DependentUpon>WindowLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowSysConfigsManagement.xaml.cs">
+      <DependentUpon>WindowSysConfigsManagement.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Resource\Style\Images.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\Style\Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ToolingSNView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UCSignLamp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UCStation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowAuthority.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowPackingMenuLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowPackingMenuOperate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowSysConfigs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowSysConfigsManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\img\createNew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\img\reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\img\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\img\editor.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+</Project>

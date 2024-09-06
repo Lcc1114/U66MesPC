@@ -1,0 +1,8 @@
+﻿
+1、上料判断进站是否ok，先根据总结果，再根据60个结果，只要一个OK===>>ok
+2、NG抛料出站只上传PASS的SN，Fail不用上传
+3
+
+
+
+根据载具码删除CarrierIDBindingSN数据
