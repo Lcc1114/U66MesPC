@@ -183,7 +183,7 @@ namespace U66MesPC.Common.Station
                         list.Add(new SNInfo(sn, result, new List<DCInfo>() { }, new List<CompInfo>() { }));
                 }
                 //检查单个SN的结果
-                if (list.Count(s => s.Result.ToUpper() == "PASS") == 0)
+                if (list.Count(s => s.Result.ToUpper() == "PASS" || s.Result.ToUpper() == "ALARM") == 0)
                 {
                     resultID = 2;
                     throw new ArgumentErrorException($"进站失败。PSA2上料载具码({carrierID})入站校验NG！该载具上的产品全部NG", "载具码入站");
